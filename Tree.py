@@ -50,9 +50,18 @@ class Node:
     def DepthFirstSearch(self, node=None):
         if node is None:
             node = self
-        
-        stack = []
 
+        stack = [node]  # start with root on stack
+
+        while stack:
+            current = stack.pop()  # take top of stack
+            print(current.value, end=' ')
+
+            # push right first, so left is processed first
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
 
 
 n1 = Node(2)
@@ -71,3 +80,4 @@ n2.right = n5
 n3.left = n6
 
 n1.BreadthFirstSearch()
+n1.DepthFirstSearch()

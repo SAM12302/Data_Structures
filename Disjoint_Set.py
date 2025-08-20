@@ -37,12 +37,18 @@ class DisjointSet:
 # Example usage
 ds = DisjointSet()
 
-for i in range(1, 6):
+"""for i in range(1, 6):
     ds.MakeSet(i)
 
 ds.Union(1, 2)
 ds.Union(3, 4)
-ds.Union(2, 3)
+ds.Union(2, 3)"""
+n = 4
+for i in range(n):
+    ds.MakeSet(i)
+
+for i in range(n-1):
+    ds.Union(i, i+1)
 
 print(ds.Find(1))  # representative of set containing 1
 print(ds.Find(4))  # same as above because {1,2,3,4} are connected
